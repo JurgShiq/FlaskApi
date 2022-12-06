@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask
 from flask_restful import Resource, Api, reqparse
 import pandas as pd
@@ -192,4 +194,4 @@ api.add_resource(Users, '/users')  # add endpoints
 api.add_resource(Locations, '/locations')
 
 if __name__ == '__main__':
-    app.run()  # run our Flask app
+    app.run(port=int(os.environ.get("PORT", 8080)),host='0.0.0.0',debug=True)  # run our Flask app
